@@ -8,7 +8,7 @@
 <body>
 <header class="nav">
 <a class="brand" href="#home">🛍️ ShreeKart</a>
-<nav><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#orders">Orders</a><a href="#account">Account</a><a href="#contact">Contact</a></nav>
+<nav><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#orders">Orders</a><a href="#account">Account</a><a id="admin-nav" href="#admin" hidden>Admin</a><a href="#contact">Contact</a></nav>
 <div class="nav-actions"><button id="account-jump" class="nav-account">Account</button><button id="cart-open" class="cart-btn">🛒 <span data-cart-count>0</span></button></div>
 </header>
 <main>
@@ -40,6 +40,35 @@
 </div></section>
 
 <section class="download"><div><span class="eyebrow">SHREEKART</span><h2>Website से shopping शुरू करें.</h2><p>Live catalog और account features अब इसी site पर available हैं.</p></div><a class="btn light" href="#shop">Browse products →</a></section>
+
+<section id="admin" class="section admin-section" hidden>
+  <div class="section-head">
+    <span class="eyebrow">ADMIN PANEL</span>
+    <h2>ShreeKart control room.</h2>
+    <p id="admin-role-note">Products और orders यहीं manage होंगे.</p>
+  </div>
+  <div class="admin-grid">
+    <div class="admin-card">
+      <div class="admin-card-head"><div><h3>Product management</h3><small>Add, edit या deactivate products.</small></div><button id="admin-refresh-products" class="btn ghost">Refresh</button></div>
+      <form id="product-form" class="admin-form">
+        <input type="hidden" id="product-id">
+        <input id="product-name" class="form-input" placeholder="Product name" required>
+        <textarea id="product-description" class="form-input" rows="2" placeholder="Description"></textarea>
+        <div class="admin-two"><input id="product-price" class="form-input" type="number" min="0" step="0.01" placeholder="Price" required><input id="product-stock" class="form-input" type="number" min="0" step="1" placeholder="Stock" required></div>
+        <input id="product-image" class="form-input" placeholder="Image URL (optional)">
+        <select id="product-category" class="form-input"><option value="">No category</option></select>
+        <div class="auth-actions"><button class="btn primary" type="submit">Save product</button><button id="product-cancel" class="btn ghost" type="button">Clear</button></div>
+        <p id="product-form-status" class="admin-status"></p>
+      </form>
+      <div id="admin-products-list" class="admin-list"></div>
+    </div>
+    <div class="admin-card">
+      <div class="admin-card-head"><div><h3>Order management</h3><small id="admin-order-note">Admin account से order status update करें.</small></div><button id="admin-refresh-orders" class="btn ghost">Refresh</button></div>
+      <div id="admin-orders-list" class="admin-list"></div>
+    </div>
+  </div>
+</section>
+
 </main>
 <footer id="contact"><div><a class="brand" href="#home">🛍️ ShreeKart</a><p>श्री करणी शरणम् 🙏</p></div><div><b>Contact</b><a href="mailto:sawaidan2021@gmail.com">sawaidan2021@gmail.com</a></div><div><b>Quick links</b><a href="#shop">Shop</a><a href="#orders">Orders</a><a href="#account">Account</a></div><p class="copyright">© <span id="year"></span> ShreeKart. All rights reserved.</p></footer>
 
